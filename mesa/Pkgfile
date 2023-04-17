@@ -1,0 +1,57 @@
+# Description:	Mesa DRI OpenGL library
+# URL:		http://www.mesa3d.org
+# Maintainer:	sajcho, saux dot aarch64 at gmail dot com
+# Depends on:	egl-wayland elfutils libva libvdpau libxdamage libxshmfence libxxf86vm llvm-toolchain python3-mako vulkan-validation-layers
+
+name=mesa
+version=23.0.2
+release=1
+source=(https://mesa.freedesktop.org/archive/${name}-${version}.tar.xz)
+
+build() {
+	cd ${name}-${version}
+
+	build-meson \
+		-Dplatforms=x11,wayland \
+		-Dllvm=enabled \
+		-Dgbm=enabled \
+		-Dgles1=disabled \
+		-Dgles2=enabled \
+		-Ddri3=enabled \
+		-Dopengl=true \
+		-Degl=enabled \
+		-Dglvnd=true \
+		-Dglx=dri \
+		-Dosmesa=true \
+		-Dgallium-vdpau=enabled \
+		-Dgallium-va=enabled \
+		-Dgallium-xa=disabled \
+		-Dgallium-nine=false \
+		-Dgallium-extra-hud=false \
+		-Dgallium-drivers=etnaviv,kmsro,lima,nouveau,panfrost,swrast,tegra,v3d,vc4,zink \
+		-Dshared-glapi=enabled \
+		-Dvulkan-drivers=swrast,broadcom,panfrost \
+		-Dvulkan-layers=device-select,overlay \
+		-Dlibunwind=disabled \
+		-Dlmsensors=disabled \
+		-Dvalgrind=disabled \
+		-Dmicrosoft-clc=disabled \
+		-Dc_args="-fuse-ld=bfd" \
+		-Dc_link_args="-fuse-ld=bfd" \
+		-Dvideo-codecs=vc1dec,h264dec,h264enc,h265dec,h265enc \
+		. build
+
+	meson compile ${JOBS:+-j ${JOBS}} -v -C build
+
+	DESTDIR=$PKG meson install --no-rebuild -C build
+
+	# libvdpau opens the versioned name, don't bother including the unversioned
+	rm $PKG/usr/lib/vdpau/*.so
+
+	# likewise glvnd
+	rm $PKG/usr/lib/libGLX_mesa.so
+	rm $PKG/usr/lib/libEGL_mesa.so
+
+	# indirect rendering
+	ln -s /usr/lib/libGLX_mesa.so.0 $PKG/usr/lib/libGLX_indirect.so.0
+}
