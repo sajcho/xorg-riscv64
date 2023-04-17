@@ -1,0 +1,9 @@
+d:mesa
+d:xf86-video-fbdev
+f:b8b31732b6802cd6f52385080107c14c:mesa/Pkgfile
+f:30892a41861a0bf4268cb874101a7a18:mesa/.footprint
+f:0a4e492c4948e815c909edd18032f6ea:mesa/.signature
+f:67637f4692885c8564d94cb123bc9ab2:xf86-video-fbdev/Pkgfile
+f:2cea19726a9c2200fe6d2c78dc52f7df:xf86-video-fbdev/.footprint
+f:23832d9a359926fb57cd7d419b3e6c10:xf86-video-fbdev/fix-build.patch
+f:79488f1c8fa5fe84e9efb3bffe759b29:xf86-video-fbdev/.signature
