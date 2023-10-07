@@ -1,5 +1,6 @@
-untrusted comment: verify with /etc/ports/xorg-riscv64.pub
-RWRdve71C1Tn8BEczSKK2h+3/lOcmZKpMEnnXAxs/5hM7M9GLCFs9G6hVWUPkwQCB+AcvD31CszCKzGFXaYqJoqNlm4e0nUTcgQ=
-SHA256 (Pkgfile) = 8d2b4214206f4777a601b09fbb3f657ab5070872de30190cd727191ede9cd617
-SHA256 (.footprint) = a546e2c8b40300f67aa54b4f1c19d115a10ea02d7678c7326f404ebe472accde
-SHA256 (mesa-23.0.2.tar.xz) = 1b7d3399fc6f16f030361f925d33ebc7600cbf98094582f54775b6a1180529e7
+untrusted comment: verify with xorg-riscv64.pub
+RWRT+MyGWjXlFN9c/ZHGYk61LkGotwSuUTwMwZ7l9c0IDYKURkjF6pYGPJ5HgB5mvNpvWIvNJNXRWwZQ27Jk+7N6ad6NtecCuQg=
+SHA256 (Pkgfile) = 9f028d12f170a62a1f058a40fa5dc9089d431294952869d934616e4cc9fae3e9
+SHA256 (.footprint) = 3d51f66c6c28d85688a31e09ab7406154ed108c6d46e7be96d4baaa92ef3e79c
+SHA256 (mesa-23.2.1.tar.xz) = 64de0616fc2d801f929ab1ac2a4f16b3e2783c4309a724c8a259b20df8bbc1cc
+SHA256 (no-unlink-megadrivers.patch) = 2eac5a17bda598d13d570592c1fb2b5b80eb2e1cd6f01ef04f1a6d7ac9457f0b
