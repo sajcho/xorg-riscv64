@@ -1,9 +1,9 @@
 d:mesa
 d:xf86-video-fbdev
 f:025ac5edd79136fbbdca2aaec5387aab:mesa/no-unlink-megadrivers.patch
-f:49dcb5f9f64ae51256c1a657ef535c77:mesa/Pkgfile
-f:7c27bef9e2036bb8f610eee63d774e34:mesa/.footprint
-f:391d9ff0704dd751b2ebdd700984604d:mesa/.signature
+f:70236283ebcfb654cd93fccb660bfc86:mesa/Pkgfile
+f:7729a5ee30d08037d816e24b662901e8:mesa/.footprint
+f:59d58cc2a82cf89b4134c1c139a57013:mesa/.signature
 f:67637f4692885c8564d94cb123bc9ab2:xf86-video-fbdev/Pkgfile
 f:2cea19726a9c2200fe6d2c78dc52f7df:xf86-video-fbdev/.footprint
 f:23832d9a359926fb57cd7d419b3e6c10:xf86-video-fbdev/fix-build.patch
