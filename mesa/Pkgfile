@@ -4,16 +4,16 @@
 # Depends on:	egl-wayland elfutils libva libvdpau libxdamage libxshmfence libxxf86vm llvm-toolchain python3-mako vulkan-validation-layers
 
 name=mesa
-version=23.3.0
+version=24.0.0-devel
+_commit=9ab59574ef162393f89c36980a366eeb8ecccb64
+# Author: Marek Olšák <maraeo@gmail.com>
+# Date:   Sat Dec 31 18:59:57 2022 -0500
 release=1
-source=(https://mesa.freedesktop.org/archive/${name}-${version}.tar.xz \
+source=(https://gitlab.freedesktop.org/mesa/mesa/-/archive/${_commit}/${name}-${_commit}.tar.gz \
 	no-unlink-megadrivers.patch)
 
 build() {
-	cd ${name}-${version}
-
-	export CFLAGS="${CFLAGS/ -flto=auto -ffat-lto-objects/ -w}"
-	export CXXFLAGS="${CXXFLAGS/ -flto=auto -ffat-lto-objects/ -w}"
+	cd ${name}-${_commit}
 
 	# from alpine linux:
 	# this converts megadriver installation to use symlinks instead of hardlinks,
@@ -47,7 +47,7 @@ build() {
 		-Dlmsensors=disabled \
 		-Dvalgrind=disabled \
 		-Dmicrosoft-clc=disabled \
-		-Dvideo-codecs=vc1dec,h264dec,h264enc,h265dec,h265enc \
+		-Dvideo-codecs=vc1dec,h264dec,h264enc,h265dec,h265enc,av1dec,av1enc,vp9dec \
 		-Dimagination-srv=true \
 		-Dbuild-tests=false \
 		. build
